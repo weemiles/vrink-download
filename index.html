@@ -24,17 +24,23 @@
       align-items: center;
       gap: 12px;
     }
-    .badges a {
+    /* App Store: no padding */
+    .appstore img {
       display: block;
-      width: 200px;
+      height: 52px;
+      width: auto;
     }
-    .badges a img {
-      width: 100%;
+    /* Google Play PNG: 41px padding on all sides — clip it */
+    .gplay-wrap {
       display: block;
+      overflow: hidden;
+      height: 52px;
     }
-    /* Google Play PNG has built-in padding — compensate */
-    .gplay {
-      margin: -10px 0;
+    .gplay-wrap img {
+      display: block;
+      height: 77px;     /* 52 * (250/168) */
+      width: auto;
+      margin-top: -13px; /* 77 * (41/250) */
     }
   </style>
 </head>
@@ -51,11 +57,11 @@
   </svg>
 
   <div class="badges">
-    <a href="https://apps.apple.com/kr/app/%EB%B8%8C%EB%A7%81%ED%81%AC-vrink/id6759699641">
+    <a class="appstore" href="https://apps.apple.com/kr/app/%EB%B8%8C%EB%A7%81%ED%81%AC-vrink/id6759699641">
       <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
     </a>
-    <a href="https://play.google.com/store/apps/details?id=com.virnk.userapp">
-      <img class="gplay" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+    <a class="gplay-wrap" href="https://play.google.com/store/apps/details?id=com.virnk.userapp">
+      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
     </a>
   </div>
 </body>
